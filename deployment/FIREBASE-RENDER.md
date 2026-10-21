@@ -1,24 +1,40 @@
-# Career Guidance production setup
+# Career Guidance production deployment
 
-Project: Firebase `careerguidaance` · GitHub `Sassyurs19/CareerGuidance` · Render workspace project `CareerGuidance`.
+Firebase project: `careerguidaance` · Web app: Career Guidance · Hosting site: `https://careerguidaance.web.app` · GitHub: `https://github.com/Sassyurs19/CareerGuidance` · Render project: CareerGuidance.
 
-The Firebase web app is registered. Its public app settings live in the ignored local `.env.production.local`; use the provided example only as a template. The Firebase web API key is designed to be public in client apps. Service account credentials must never go in the repository or this file.
-
-## Required account-console steps
-
-1. In Firebase Authentication, enable Email/Password sign-in. Leave email verification off as requested.
-2. Create the default Firestore database in the Firebase console. Firestore is not enabled yet for this project. Choose a nearby region carefully; its database region cannot be changed later. The backend uses the default database. The Firebase project is on Spark (no-cost) plan; don't upgrade without deciding about billing.
-3. Create a Render secret file named `firebase-service-account.json` from a service account in this Firebase project with least-privilege Firestore and Firebase Auth access. Add it under Render service Secret Files. Never commit it or paste it in chat.
-4. Create a Render Web Service from `Sassyurs19/CareerGuidance` (connect GitHub if prompted), root directory `/`, build command `npm ci --include=dev && npm run build:api`, start command `npm run start:api`, health path `/health`. Set the variables shown in `render.yaml`; set the secret file path `/etc/secrets/firebase-service-account.json`. Use the free plan for now.
-5. Copy the assigned Render URL into `VITE_API_URL` in `.env.production.local`, then run `npm run build:hosting` and deploy the static output with `firebase deploy --only hosting --project careerguidaance`.
-6. Add `https://careerguidaance.web.app` to Firebase Auth authorized domains if it is not already present.
-
-## Build and deploy
-
-`npm run build:api` bundles the Render API. `npm run build:hosting` builds the Firebase static website and requires the HTTPS Render URL in `.env.production.local`. Firebase Hosting rewrites browser routes to the SPA entry; the API remains at Render. GitHub Actions is set to deploy the API through Render's connected repository; deploy static Hosting from the local Firebase CLI after creating the API URL.
-
-The app uses Firebase Auth for sign-in and a Render API for plan storage, validation and account actions. Firestore rules deny direct browser access; the trusted API verifies Firebase ID tokens. The existing local Cloudflare/D1 workflow stays available for the local demo. Old local accounts and plans are not automatically copied to Firebase; students create accounts on the hosted version.
+The Firebase web app is registered. Its public app settings are stored in the ignored `.env.production.local`. Do not commit that local file. Firebase client API keys identify an app; Firestore security rules and Auth protect user data. Firebase Admin credentials must stay only in Render Secret Files.
 
 ## Current status
 
-Firebase web app registered; Render workspace project exists; repository exists and is empty. Render service has not been created. Firestore API/database and Email/Password provider are not enabled. Publication waits for those console steps and the Render service URL/secret file. The default-deny rules file is included and can be deployed once Firestore is enabled.
+- Source is pushed to GitHub `main`.
+- Firebase Hosting site exists.
+- Firestore default database is created; default deny rules have been deployed.
+- Render project exists, but a Render Web Service still needs to be created.
+- Email/Password provider must be enabled in Firebase Authentication (email verification can stay disabled).
+- The production frontend build needs the Render service URL first.
+
+## Create the Render API service
+
+In the Render `CareerGuidance` project, choose **New Web Service**, connect `Sassyurs19/CareerGuidance`, and set:
+
+- Runtime: Node
+- Root directory: `/`
+- Build: `npm ci --include=dev && npm run build:api`
+- Start: `npm run start:api`
+- Health check: `/health`
+- Plan: Free
+- `FIREBASE_PROJECT_ID=careerguidaance`
+- `ALLOWED_ORIGINS=https://careerguidaance.web.app,https://careerguidaance.firebaseapp.com`
+- `GOOGLE_APPLICATION_CREDENTIALS=/etc/secrets/firebase-service-account.json`
+
+Create a Firebase service account credential with only the Firebase Auth and Firestore permissions this API needs. Add it as Render Secret File named `firebase-service-account.json`; do not put its JSON in GitHub, chat or local config files. `render.yaml` contains the service definition for review.
+
+## Finish Firebase Hosting
+
+Once Render shows the API URL, put it in `.env.production.local` as `VITE_API_URL=https://...onrender.com`. Then run `npm run build:hosting`, followed by `firebase deploy --only hosting --project careerguidaance`. Add `careerguidaance.web.app` to Firebase Auth authorized domains if needed.
+
+## Firestore and account behavior
+
+The browser uses Firebase Auth email/password without requiring verification. Render verifies ID tokens and owns plan validation, saved progress, optional route completion and resets. Firestore client rules deny all direct reads and writes; only the authenticated API accesses student records. Existing local accounts are not copied automatically; students register on the hosted site. WhatsApp automation remains coming soon.
+
+The project is currently on Firebase Spark (no-cost) plan. No billing plan change was made. The Render API uses its free plan setting.
