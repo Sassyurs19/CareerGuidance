@@ -1,7 +1,7 @@
 .mobile-career-tree{display:none}
 @media(max-width:700px){
- .desktop-career-tree{display:none}
- .mobile-career-tree{display:block;border:1px solid #d7e3d7;border-radius:18px;overflow:hidden;background:#f7faf3;color:#36563e}
+ .desktop-career-tree{display:block}
+ .mobile-career-tree{display:none}
  .mobile-tree-route{padding:19px 18px 0;background:#eef5e8;border-bottom:1px solid #dce7d7}
  .mobile-tree-route-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:15px}
  .mobile-tree-route-heading>span{font-size:11px;font-weight:700;letter-spacing:.25px;color:#627c5d}
