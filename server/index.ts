@@ -87,8 +87,12 @@ async function handle(req:IncomingMessage,res:ServerResponse){
   if(req.method!=='POST')fail(404,'Not found.');
   const data=await input(req);
   if(path==='/api/register'){
-   if(data.terms!==true)fail(400,'Accept the terms before continuing.');
-   await store.runTransaction(async tx=>{const old=await tx.get(ref);if(!old.exists)tx.create(ref,{created:Date.now(),terms:'2026-10-21',email:user.email||''});});
+   await store.runTransaction(async tx=>{
+    const old=await tx.get(ref);
+    if(old.exists){if(data.terms===true)tx.set(ref,{terms:'2026-10-21',email:user.email||''},{merge:true});return;}
+    if(data.terms!==true)fail(409,'Create an account and accept the terms before continuing.');
+    tx.create(ref,{created:Date.now(),terms:'2026-10-21',email:user.email||''});
+   });
    send({ok:true});return;
   }
   if(path==='/api/plan'){send(await updatePlan(user.uid,data));return;}

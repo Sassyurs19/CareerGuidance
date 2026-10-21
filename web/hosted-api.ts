@@ -1,5 +1,5 @@
 import {initializeApp} from 'firebase/app';
-import {getAuth, browserSessionPersistence, setPersistence, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, reauthenticateWithCredential, EmailAuthProvider, deleteUser} from 'firebase/auth';
+import {getAuth, browserSessionPersistence, setPersistence, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, reauthenticateWithCredential, EmailAuthProvider, deleteUser, GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
 
 declare const __FIREBASE_CONFIG__: Record<string,string>;
 declare const __API_URL__: string;
@@ -32,6 +32,13 @@ export async function hostedRequest(path:string,data?:unknown):Promise<Response>
    }else await signInWithEmailAndPassword(auth,email,password);
    return result({user:{id:auth.currentUser!.uid,email:auth.currentUser!.email}});
   }
+  if(path==='google-login'||path==='google-register'){
+   if(path==='google-register'&&input.terms!==true)return result({error:'Please accept the terms and privacy notice first.'},400);
+   const account=await signInWithPopup(auth,new GoogleAuthProvider());
+   const accepted=await remote('register',{terms:path==='google-register'&&input.terms===true});
+   if(!accepted.ok)return accepted;
+   return result({user:{id:account.user.uid,email:account.user.email}});
+  }
   if(path==='logout'){await signOut(auth);return result({ok:true});}
   if(path==='change-password'||path==='delete-account'){
    const user=auth.currentUser;
@@ -54,6 +61,8 @@ export async function hostedRequest(path:string,data?:unknown):Promise<Response>
    code==='auth/too-many-requests'?'Too many attempts. Please try again later.':
    code==='auth/invalid-email'?'Enter a valid email address.':
    code==='auth/weak-password'?'Choose a stronger password.':
+   code==='auth/popup-closed-by-user'?'Google sign-in was closed before it finished.':
+   code==='auth/popup-blocked'?'Allow the sign-in window, then try Google again.':
    'Unable to connect. Please try again shortly.';
   return result({error:message},400);
  }
