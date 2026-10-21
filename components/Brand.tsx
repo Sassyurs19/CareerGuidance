@@ -1,0 +1,3 @@
+export default function Brand({compact=false}:{compact?:boolean}){
+ return <span className="brand-lockup"><svg className="cg-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="1" y="1" width="46" height="46" rx="16" fill="#315F4C"/><rect x="4.5" y="4.5" width="39" height="39" rx="12.5" stroke="#A8C8B2" strokeOpacity=".45" strokeWidth=".7"/><path d="M33 16a12 12 0 1 0 1 15v-7h-9" stroke="#F6FAF0" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/><path d="M23 33V22m0 3-6-6m6 3 6-7" stroke="#CEE1BB" strokeWidth="2" strokeLinecap="round"/><path d="M28 16c-1-4 2-6 6-5 0 4-2 6-6 5Z" fill="#CEE1BB"/><circle cx="17" cy="19" r="2" fill="#CEE1BB"/></svg>{!compact&&<span className="brand-wordmark">Career Guidance</span>}</span>;
+}

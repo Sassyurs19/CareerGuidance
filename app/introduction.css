@@ -1,0 +1,52 @@
+.student-introduction{max-width:850px;margin:6px auto 35px;color:#294d3d}
+.introduction-header{max-width:640px;margin-bottom:28px}
+.introduction-eyebrow{display:block;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#65836d;margin-bottom:13px}
+.introduction-header h1{font-family:'Libre Baskerville',Georgia,serif;font-size:30px;font-weight:400;line-height:1.45;letter-spacing:-.7px;color:#294d3d}
+.introduction-header>p{font-size:13px;line-height:1.8;color:#6f8174;max-width:590px;margin-top:12px}
+.introduction-card{border:1px solid #dce6dc;border-radius:19px;background:#fff;overflow:hidden;box-shadow:0 7px 28px #31563a05}
+.introduction-progress{display:flex;gap:36px;list-style:none;margin:0;padding:20px 32px;background:#f2f7ef;border-bottom:1px solid #e1e9df}
+.introduction-progress li{display:flex;align-items:center;gap:10px;font-size:11px;color:#89978a}
+.introduction-progress li>span{display:grid;place-items:center;width:26px;height:26px;border:1px solid #d5e0d3;border-radius:50%;font-size:10px;font-weight:700;background:#f9fbf7}
+.introduction-progress strong{font-weight:400}
+.introduction-progress li.current{color:#375f42}
+.introduction-progress li.current>span{color:#fff;background:#527d58;border-color:#527d58}
+.introduction-progress li.current>strong{font-weight:700}
+.introduction-progress li.complete{color:#67836a}
+.introduction-progress li.complete>span{background:#e2ecdc;border-color:#c8d9c1;color:#557953}
+.introduction-form{padding:30px 32px 25px}
+.introduction-section-title{display:flex;align-items:flex-start;gap:15px;margin-bottom:28px}
+.introduction-section-icon{display:grid;place-items:center;flex-shrink:0;width:45px;height:45px;border-radius:13px;background:#f0f5ea;color:#61835e}
+.introduction-section-title h2{font-family:'Lato',Arial,sans-serif;font-size:21px;font-weight:700;line-height:1.5;color:#31543d;outline:none;scroll-margin-top:28px}
+.introduction-section-title p{font-size:12px;line-height:1.7;color:#7a8a7b;margin-top:5px;max-width:570px}
+.introduction-study-fields{display:grid;grid-template-columns:1fr 1fr;gap:22px 18px;border:0;padding:0;margin:0;min-width:0}
+.introduction-field{display:flex;flex-direction:column;gap:9px;min-width:0;font-size:12px;line-height:1.5;font-weight:700;color:#4b6650}
+.introduction-field.wide-field{grid-column:1/-1}
+.introduction-field select{width:100%;min-height:47px;background:#fcfdfb;border:1px solid #d6e0d2;border-radius:8px;padding:11px 13px;font-size:13px;color:#3d5944;font-weight:400}
+.introduction-field select:focus-visible{outline-color:#80a47a}
+.introduction-field small{font-size:11px;font-weight:400;color:#85917f;line-height:1.65}
+.introduction-interest-fields{display:grid;gap:29px}
+.introduction-interest-fields fieldset{min-width:0;border:0;padding:0;margin:0}
+.introduction-interest-fields legend{font-size:14px;font-weight:700;color:#3d6045;padding:0;margin-bottom:5px}
+.introduction-choice-hint{display:flex;justify-content:space-between;gap:12px;font-size:11px;line-height:1.7;color:#85917f;margin-bottom:13px}
+.introduction-choice-hint>span{font-size:10px;color:#7b9277}
+.introduction-choices{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.introduction-choice{position:relative;display:flex;align-items:center;gap:10px;min-height:45px;border:1px solid #e0e7dc;border-radius:8px;padding:11px 12px;background:#fcfdfb;font-size:12px;line-height:1.5;color:#69806a;cursor:pointer;transition:background .15s,border-color .15s}
+.introduction-choice input{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.introduction-check{display:grid;place-items:center;width:17px;height:17px;flex-shrink:0;border:1px solid #ccd9c5;border-radius:5px;background:#fff;color:#fff}
+.introduction-choice:hover:not(.is-disabled){border-color:#a4bea0;background:#f7faf4}
+.introduction-choice.is-selected{border-color:#9cba95;background:#edf5e8;color:#365c3c}
+.introduction-choice.is-selected .introduction-check{background:#63885e;border-color:#63885e}
+.introduction-choice:has(input:focus-visible){outline:3px solid #8eaf86;outline-offset:2px}
+.introduction-choice.is-disabled:not(.is-selected){opacity:.55;cursor:default}
+.introduction-choice.unsure-choice{background:#fff;border-style:dashed;color:#7c8977}
+.introduction-choice.unsure-choice.is-selected{background:#f2f6ee;border-style:solid;color:#416b47}
+.introduction-error{margin-top:23px}
+.introduction-actions{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid #e6ece1;padding-top:22px;margin-top:28px}
+.introduction-actions .text-control{color:#648164;font-size:12px}
+.introduction-actions .button{background:#527d58;border-color:#527d58;border-radius:8px;font-size:12px;padding:12px 17px;flex-shrink:0}
+.introduction-actions .button:hover:not(:disabled){background:#416849;border-color:#416849}
+.introduction-save-note{font-size:11px;line-height:1.7;color:#8a9784;max-width:225px}
+.introduction-sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+@media(max-width:650px){.student-introduction{margin-top:0}.introduction-header{margin-bottom:23px}.introduction-header h1{font-size:26px}.introduction-header>p{font-size:12px}.introduction-progress{padding:18px 21px;gap:24px}.introduction-progress li{font-size:10px;gap:8px}.introduction-form{padding:24px 21px 21px}.introduction-section-title{gap:11px;margin-bottom:24px}.introduction-section-title h2{font-size:18px}.introduction-section-title p{font-size:11px}.introduction-section-icon{width:39px;height:39px;border-radius:11px}.introduction-study-fields{grid-template-columns:1fr;gap:19px}.introduction-choices{grid-template-columns:1fr}.introduction-actions{gap:15px;flex-wrap:wrap}.introduction-actions .button{margin-left:auto}.introduction-save-note{max-width:180px;font-size:10px}.introduction-field select{font-size:13px}}
+@media(max-width:390px){.introduction-progress{gap:15px;padding-inline:16px}.introduction-form{padding-inline:16px}.introduction-save-note{max-width:120px}.introduction-actions .button{font-size:11px;padding-inline:12px}}
+@media(prefers-reduced-motion:reduce){.introduction-choice{transition:none}}

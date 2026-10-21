@@ -1,0 +1,269 @@
+/* Shared light-green theme. Document layout remains controlled by globals.css. */
+:root{--accent:#356b50;--line:#dbe5d5;--muted:#657760;--leaf-page:#f2f6ed;--leaf-card:#fcfdf9;--leaf-soft:#e9f1e1;--leaf-border:#dbe5d5;--leaf-ink:#2a4434;--leaf-muted:#657760;--leaf-deep:#315f4c;background:var(--leaf-page);color:var(--leaf-ink)}
+@media screen{
+ html,body{background:var(--leaf-page);color:var(--leaf-ink)}
+ .site,.welcome-site,.access-page{min-height:100vh;background:var(--leaf-page)}
+ h1,h2,h3,h4{color:var(--leaf-ink)}
+ p,.muted-text{color:var(--leaf-muted)}
+ ::selection{background:#cfdfbf;color:#243e2c}
+ button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible{outline-color:#6d9568}
+ .search:focus-within{outline-color:#6d9568}
+ .header,.student-header{background:#f9fcf5;border-bottom:1px solid var(--leaf-border)}
+ .student-header-inner{min-height:88px}
+ .header{height:88px}
+ .brand-lockup{gap:12px}
+ .brand .cg-mark{width:46px;height:46px}
+ .brand-wordmark{font-family:'Libre Baskerville',Georgia,serif;font-size:23px;letter-spacing:-.9px;color:#2e503c;line-height:1.12}
+ .brand-wordmark>span{font-family:'Lato',Arial,sans-serif;font-size:9px;letter-spacing:3.4px;font-weight:700;color:#6e885e;margin:7px 0 0 2px}
+ .account-link{padding:10px 19px;border:1px solid #d0dec6;border-radius:8px;background:#edf4e6;color:#436340;font-weight:700}
+ .portal-nav button{color:#687c60;font-size:12px}
+ .portal-nav button:hover{background:#edf3e6;color:#315a3d}
+ .portal-nav button[aria-current]{background:#e1edd6;color:#305c3c}
+ .portal-utilities{border-color:#dbe5d2}
+ .home-trigger{background:#edf4e6;border-color:#d6e3cb;color:#52764d}
+ .home-trigger.active,.home-trigger[aria-expanded=true]{background:#e1edd6;border-color:#bcd0ad;color:#315a3d}
+ .home-dropdown{background:#fcfef9;border-color:#d5e3cb;box-shadow:0 14px 35px #324d2414}
+ .home-dropdown button{color:#4b6743;font-size:13px}
+ .home-dropdown button+button{border-color:#e5eddf}
+ .home-dropdown svg{color:#76936b}
+ .home-dropdown button:hover,.home-dropdown button:focus,.home-dropdown button[aria-current]{background:#edf4e6;color:#315a3d}
+ .page-heading h1,.report-toolbar h1{color:#2e4d38;letter-spacing:-.7px}
+ .page-heading p{font-size:13px;color:#6a7d64}
+ .button{border-radius:9px;font-weight:700}
+ .primary{background:#3f704d;border-color:#3f704d;color:#fff}
+ .primary:hover:not(:disabled){background:#305c3d;border-color:#305c3d}
+ .secondary{background:#f9fcf5;border-color:#cfddc4;color:#496942}
+ .secondary:hover:not(:disabled){background:#eaf2e1;border-color:#b9cfa9}
+ .text-control,.link-row>a:not(.button),.settings-links{color:#426f45}
+ .footer{border-color:#d8e3d0;color:#738468}
+ .footer a:hover{color:#315e39}
+ .workspace{padding-top:34px}
+ select,.search{background:#fcfef9;border-color:#d1dfc7;color:#496442;border-radius:8px}
+ .search input{color:#304b37;font-size:13px}
+ .search{color:#819774}
+ input::placeholder{color:#8b9b80}
+ .region-control{color:#6b7e62}
+ .toast{background:#31543c;border:1px solid #577b50;border-radius:10px;box-shadow:0 8px 24px #2a43281a}
+ .workspace-error{background:var(--leaf-card);border-color:var(--leaf-border)}
+ /* Welcome and account entry */
+ .welcome-main{padding-block:78px 58px;gap:60px}
+ .section-label{display:inline-block;padding:6px 10px;border:1px solid #d9e5cb;border-radius:5px;background:#eaf2de;color:#5e7e4d;font-size:11px;letter-spacing:.3px}
+ .welcome-intro h1{font-size:42px;line-height:1.3;letter-spacing:-1.4px;color:#2e5039;margin:21px 0}
+ .welcome-intro>p{font-size:15px;line-height:1.85;color:#6a7b61}
+ .welcome-intro>.muted-text{color:#7b8a70;font-size:12px}
+ .example-route{position:relative;background:#f9fcf5;border-color:#d3e1c7;border-radius:19px;padding:31px;box-shadow:6px 7px 0 #e8f0de}
+ .example-route h2{color:#63844e;font-size:12px;font-weight:700}
+ .example-route li{padding-bottom:25px}
+ .example-route strong{color:#3f5e3c;font-size:14px;font-weight:700}
+ .example-route li>span{background:#e9f2df;color:#5e7e4b;border-color:#d2e2c3;border-radius:50%;width:31px;height:31px}
+ .example-route li:last-child>span{background:#47704d;border-color:#47704d;color:#fff}
+ .example-route li:not(:last-child):before{background:#cbdcbc;left:15px}
+ .example-route>p{color:#718463;border-color:#dce7d1;font-size:12px}
+ .welcome-overview{border-color:#d6e2cb}
+ .welcome-overview span{color:#839a70}
+ .welcome-overview h2{color:#40633e}
+ .welcome-overview p{font-size:13px;color:#718367}
+ .access-card{background:#fcfdf8;border-color:#d5e2c9;border-radius:17px;padding:34px;box-shadow:0 10px 32px #435b2410}
+ .access-card h1{color:#31553b}
+ .access-card>p,.access-help,.access-help p{color:#6f8164}
+ .access-help{border-color:#dce6d3}
+ form>label:not(.terms-check){color:#506d45}
+ .dialog input:not([type=checkbox]),.access-card input:not([type=checkbox]){background:#fffefb;border-color:#ceddc3;color:#365139;border-radius:8px;min-height:46px}
+ .terms-check{color:#6c7e60}
+ .dialog{background:#fcfdf8;color:#304c35;border-color:#d3e1c7;border-radius:17px;box-shadow:0 20px 80px #29452924}
+ .dialog::backdrop{background:#223e2866}
+ .dialog-content>h2{font-family:'Libre Baskerville',Georgia,serif;font-size:22px;line-height:1.5;font-weight:400;color:#31553b}
+ .plan-preview{background:#f3f7ee;border-color:#d6e2cd;color:#4f6945}
+ .public-legal{max-width:790px}
+ .legal>h3{font-family:'Libre Baskerville',Georgia,serif;font-size:28px;font-weight:400;color:#31553b}
+ .legal small{color:#7d916e}.legal p{color:#607456}
+ /* Profile and settings */
+ .profile-identity,.profile-details,.settings-group{background:var(--leaf-card);border-color:#d8e3cf;border-radius:16px}
+ .profile-avatar{background:#e9f1df;border-color:#d0dfc2;color:#6b8c59}
+ .profile-identity h2,.profile-details h2,.settings-group h2{color:#3c603e}
+ .profile-status{background:#ecf3e4;color:#5f7b4f;font-size:10px}
+ .profile-identity dl>div{border-color:#e0e9d8}
+ .profile-identity dt{color:#7e946c;font-size:11px}
+ .profile-identity dd{color:#4d6b44;font-size:13px}
+ .profile-identity .text-control{color:#527947}
+ .profile-details>label{color:#55754b}
+ .profile-details input,.profile-details select{border-color:#d0dfc3;background:#fefff9;color:#42623c}
+ .profile-details input[readonly]{color:#7e9072;background:#f0f5e9}
+ .field-help{color:#7a8e6c;font-size:11px}
+ .profile-save>span{color:#7b906b}
+ .profile-privacy{border-color:#dce7d2;color:#7a9865}
+ .profile-privacy p{color:#7a8e6b}
+ .setting-row{border-color:#e0e9d7}
+ .setting-row h3{color:#506e45;font-size:14px}
+ .setting-row p{color:#728666;font-size:12px}
+ .setting-status{color:#7c916f;background:#eef4e6;border:1px solid #dce7d0;padding:5px 9px;border-radius:5px}
+ .settings-links a{color:#527747}
+ /* Exams and library */
+ .reference-list{border:0;display:grid;gap:11px}
+ .exam-row{border:1px solid #dbe5d2;background:#fafcf6;border-radius:12px}
+ .exam-row>summary{padding:20px;color:#3e5f3c}
+ .exam-row>summary:before{color:#7f9a6c}
+ .exam-row>summary>span{color:#718565}
+ .exam-row>summary small{color:#6c8859;background:#eaf2df;padding:5px 9px;border-radius:5px}
+ .exam-row[open]{border-color:#bcccac}
+ .exam-body{padding:0 24px 22px}
+ .reference-facts dt{color:#526e45}.reference-facts dd{color:#6a7f5f}
+ .folder-browser{background:#fcfdf9;border-color:#d9e3d0}
+ .folder-browser-toolbar{background:#f8fbf2;border-color:#dde7d3}
+ .folder-heading h2{color:#31543a}
+ .folder-search{background:#fcfef8}
+ .folder-breadcrumbs button{color:#68825a}
+ .folder-breadcrumbs [aria-current=page]{color:#365d3c}
+ .study-folder,.study-folder:before{background:#eff5e8;border-color:#d3e2c6}
+ .study-folder:hover,.study-folder:hover:before{background:#e8f1de;border-color:#b7cea6}
+ .study-folder>strong{color:#3d623b}.folder-description{color:#718664}
+ .folder-top,.folder-top>span{color:#7b9769}
+ .folder-bottom{border-color:#d9e6cf;color:#6e875f}
+ .folder-resource-list h3,.folder-guide h3{color:#43663e}
+ .folder-subjects span{background:#f2f7eb;border-color:#dce7d1;color:#658354}
+ .resource-file{background:#fcfef7;border-color:#dbe6d1}
+ .resource-file:hover{background:#f0f6e7;border-color:#bed2ac}
+ .resource-file-icon{background:#eaf2de;color:#75985e}
+ .resource-file strong{color:#486c3e}.resource-file small{color:#7e936e}
+ .folder-requirements{border-color:#dfe9d4}
+ .library-note,.empty-state{color:#7b8f6b}
+ /* The accepted tree retains its shapes and selected/alternative contrast. */
+ .restored-tree{border-color:#d6e2cb;background:#f9fcf4}
+ .restored-tree .map-controls,.restored-tree .map-footer{background:#f9fcf4;border-color:#dfe8d5}
+ .restored-tree .tree-with-summary,.restored-tree .selected-path-panel{background:#edf4e5}
+ .restored-tree .tree-main-column,.restored-tree .map-viewport,.restored-tree .map-scroll-hint,.restored-tree .map-level-caption,.restored-tree .map-finish{background:#f6faf0}
+ .restored-tree .map-world{background-image:radial-gradient(#cfddc4 .7px,transparent .7px)}
+ .restored-tree .map-detail{background:#fcfdf8;border-color:#dbe5d2}
+ .restored-tree .map-origin,.restored-tree .map-node:not(.is-selected):not(.is-alternative){background:#fefff9}
+ .restored-tree .map-footer .primary{background:#3f704d;border-color:#3f704d}
+ .restored-tree .map-footer .primary:hover{background:#305c3d}
+ .restored-tree .map-footer .secondary{background:#f7fbef;border-color:#d1dfc5;color:#537449}
+ /* Report preview: calm paper, green rules, full text available immediately. */
+ .print-report.is-preview{color:#314334}
+ .report-section-nav button{border-color:#d7e2cc;background:#fafdf4;color:#708760}
+ .report-section-nav button>span{color:#8ba077}
+ .report-section-nav button[aria-pressed=true]{border-color:#b6cfa4;background:#e4efda;color:#476d3e}
+ .report-section-nav button[aria-pressed=true]>span{color:#6c9157}
+ .document-section{border-color:#d7e1cd;border-radius:12px;box-shadow:0 5px 20px #3a502805;background:#fffefb}
+ .document-header{border-color:#9db68a;color:#42623b}
+ .document-header>strong{font-family:'Libre Baskerville',Georgia,serif;font-weight:400;font-size:15px}
+ .document-header>span,.document-title>small{color:#7d926e}
+ .document-title h1{font-family:'Libre Baskerville',Georgia,serif;font-weight:400;font-size:27px;line-height:1.4;color:#34553a}
+ .print-report p,.action-list,.document-checklist li{color:#607156}
+ .route-number{background:#edf4e5;border-color:#bdd0ac;color:#62804f}
+ .document-route li:last-child .route-number{background:#deebd2;border-color:#93b17d;color:#426237}
+ .document-route li:not(:last-child):before{background:#b9cda9}
+ .document-route li:not(:last-child):after{border-color:#b9cda9}
+ .document-route small,.document-route li>div>span{color:#7e9270}
+ .goal-preparation,.category-note,.document-footer,.print-report .document-note{border-color:#dce5d2}
+ .requirements-table th,.requirements-table td,.admission-table th,.admission-table td{border-color:#d8e2cf;color:#52664a}
+ .requirements-table thead th,.admission-table thead th{background:#edf4e5;color:#557246}
+ .requirements-table tbody th{background:#f8faf4}
+ .requirements-table th>small,.requirements-table th>span,.admission-table tbody th small{color:#7c916c}
+ .application-flow li{border-color:#d3e1c6;background:#f9fcf4;color:#657e55}
+ .application-flow b,.application-flow li:not(:last-child):after{color:#729661}
+ .source-ref,.resource-directory a,.resource-number{color:#597b45}
+ .empty-check{border-color:#96b080}.empty-check.checked{color:#50713b;border-color:#82a26c}
+ .document-footer{color:#7a8b6c}
+}
+
+/* My Plan */
+.plan-save-control{display:flex;align-items:center;gap:17px}
+.plan-save-state{display:flex;align-items:center;gap:7px;color:#738967;font-size:11px}
+.plan-save-state i{width:6px;height:6px;border-radius:50%;background:#80a26c}
+.plan-save-state.pending i{background:#ae9652}
+.plan-goal-banner{display:flex;align-items:center;gap:21px;border:1px solid #d0e0c4;border-radius:17px;padding:27px 30px;background:#eaf2e0;margin:0 0 24px}
+.plan-goal-symbol{width:56px;height:56px;flex-shrink:0;display:grid;place-items:center;border:1px solid #c9dbbb;background:#f4f9ec;border-radius:50%;color:#6b8e56}
+.plan-eyebrow{display:block;font-size:10px;font-weight:700;letter-spacing:1.15px;color:#687f56;line-height:1.6}
+.plan-goal-banner h2{font-family:'Libre Baskerville',Georgia,serif;font-weight:400;font-size:25px;line-height:1.5;letter-spacing:-.5px;color:#35593a;margin:6px 0}
+.plan-goal-banner p{font-size:12px;color:#738965}
+.plan-region{display:inline-flex;align-items:center;gap:6px;margin-left:auto;align-self:flex-start;padding:7px 10px;border:1px solid #d0dfc3;border-radius:6px;color:#73915f;font-size:10px;white-space:nowrap}
+.my-plan-layout{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:24px;align-items:start}
+.plan-route-card,.plan-preparation-card{border:1px solid #d8e4cd;border-radius:16px;background:#fcfef8;padding:27px}
+.plan-card-heading{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:22px}
+.plan-card-heading h2{font-family:'Libre Baskerville',Georgia,serif;font-size:18px;letter-spacing:-.35px;font-weight:400;color:#3e613d;margin-top:6px}
+.plan-card-heading .text-control{font-size:11px;white-space:nowrap}
+.plan-itinerary{list-style:none;padding:0;margin:29px 0 22px}
+.plan-itinerary li{display:flex;align-items:flex-start;gap:15px;position:relative;min-height:76px;padding-bottom:23px}
+.plan-itinerary li:not(:last-child):before{content:'';position:absolute;left:17px;top:33px;bottom:0;width:1px;background:#ccdcbc}
+.itinerary-marker{position:relative;z-index:1;width:35px;height:35px;display:grid;place-items:center;background:#eff5e7;border:1px solid #d4e2c9;border-radius:50%;font-size:10px;color:#7a9865;flex-shrink:0}
+.plan-itinerary .is-current .itinerary-marker{background:#527a4c;border-color:#527a4c;color:#fff}
+.plan-itinerary li>div{padding-top:1px;min-width:0;flex:1}
+.plan-itinerary small{display:block;font-size:11px;color:#758969;line-height:1.6}
+.plan-itinerary strong{display:block;font-size:14px;color:#4a6a40;line-height:1.6;margin:3px 0}
+.plan-itinerary li>div>span{display:block;font-size:11px;color:#758969;line-height:1.6}
+.plan-itinerary li:last-child{padding-bottom:0;min-height:50px}
+.itinerary-check{color:#9ab28b;margin-top:10px}
+.plan-continue{display:flex;align-items:center;justify-content:space-between;width:100%;padding:13px 15px;border:1px dashed #bdd2ab;border-radius:8px;background:#f4f9ec;color:#60824e;font-size:12px;margin:24px 0}
+.plan-continue:hover{background:#eaf4df}
+.plan-route-resources{display:flex;align-items:center;gap:12px;padding-top:22px;margin-top:25px;border-top:1px solid #e0e9d6;color:#87a473}
+.plan-route-resources strong{font-size:12px;color:#678453}.plan-route-resources p{font-size:11px;color:#8a9d7c;margin-top:4px}
+.plan-route-resources button{display:grid;place-items:center;margin-left:auto;width:32px;height:32px;background:#eff5e8;border:1px solid #dce7d1;border-radius:50%;color:#779968;flex-shrink:0}
+.plan-side-column{display:grid;gap:20px}
+.preparation-count{font-size:25px;font-family:'Libre Baskerville',Georgia,serif;color:#5c7d4e}
+.preparation-count small{font:12px 'Lato',Arial,sans-serif;color:#95a786}
+.preparation-progress{display:block;appearance:none;width:100%;height:5px;border:0;border-radius:5px;background:#e7efdf;overflow:hidden;margin-bottom:15px}
+.preparation-progress::-webkit-progress-bar{background:#e7efdf}.preparation-progress::-webkit-progress-value{background:#8eaf77;border-radius:5px;transition:width .25s}.preparation-progress::-moz-progress-bar{background:#8eaf77;border-radius:5px}
+.plan-checklist label{display:flex;align-items:center;gap:13px;padding:14px 0;border-bottom:1px solid #e8efdf;font-size:13px;color:#607a50;line-height:1.6;cursor:pointer}
+.plan-checklist label:last-child{border:0}
+.plan-checklist input{width:17px;height:17px;accent-color:#64884d;margin:0}
+.plan-checklist .is-done span{color:#6f8560;text-decoration:line-through;text-decoration-color:#aabb9a}
+.plan-project{padding:15px 17px;background:#f0f6e7;border:1px solid #dce8d0;border-radius:9px;margin-top:19px}
+.plan-project p{font-size:12px;color:#6c865c;margin-top:6px;line-height:1.8}
+.plan-print-card{display:flex;gap:23px;align-items:center;background:#e9f2df;border:1px solid #d4e3c7;border-radius:15px;padding:24px}
+.plan-print-card h2{font-family:'Libre Baskerville',Georgia,serif;font-size:19px;font-weight:400;color:#3c613b;letter-spacing:-.3px;margin:6px 0}
+.plan-print-card p{font-size:12px;color:#758e65;line-height:1.8;max-width:290px}
+.plan-print-card .button{margin-top:15px;font-size:11px}
+.plan-paper-icon{position:relative;background:#fffff8;border:1px solid #d4dfc7;border-radius:4px;width:88px;min-height:112px;padding:17px 12px;flex-shrink:0;transform:rotate(-6deg);box-shadow:4px 5px 0 #dce8d0}
+.plan-paper-icon>span:first-child{font-size:5px;letter-spacing:.8px;color:#8a9d74;display:block;margin:0 0 15px}
+.plan-paper-icon>i{display:block;width:100%;height:3px;background:#dbe7cc;margin:8px 0}.plan-paper-icon>i:nth-child(3){width:75%}.plan-paper-icon>i:nth-child(4){width:87%}
+.paper-seal{position:absolute;right:9px;bottom:9px;border:1px solid #cedfc0;color:#8ba572;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#f1f7e9}
+.plan-connect-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:0 4px;color:#7b926a;font-size:12px}
+.plan-connect-row small{font-size:10px;color:#8ea27e}
+.plan-history{padding:22px 0;border-top:1px solid #dbe5d1;margin-top:30px}
+.plan-history summary{color:#718961;font-size:12px}.plan-history summary>span{font-size:10px;color:#99aa8b;margin-left:10px}
+.plan-history li{color:#70865f}.plan-history time{color:#97a786}
+.plan-history>p{font-size:12px;margin-top:15px}
+
+/* A short mechanical typing animation introduces the report, never delays printing. */
+.print-intro{position:fixed;z-index:35;right:24px;bottom:24px;width:min(490px,calc(100vw - 48px));display:flex;align-items:center;gap:18px;min-height:123px;background:#e8f2dc;border:1px solid #cdddbe;border-radius:13px;padding:14px 20px;margin:0;box-shadow:0 12px 35px #294b2420;font-family:'Lato',Arial,sans-serif}
+.typewriter-mini{position:relative;width:104px;height:90px;flex-shrink:0;overflow:hidden}
+.typewriter-paper{position:absolute;top:3px;left:22px;width:60px;height:66px;padding:11px 8px;background:#fffef4;border:1px solid #cbdab9;border-radius:2px;animation:paper-feed 1.8s steps(5,end) both}
+.typewriter-paper i{display:block;height:2px;width:100%;margin:5px 0;background:#b4c99c;transform-origin:left;animation:typed-line .3s steps(7,end) both}
+.typewriter-paper i:nth-child(2){animation-delay:.35s;width:72%}.typewriter-paper i:nth-child(3){animation-delay:.7s;width:88%}.typewriter-paper i:nth-child(4){animation-delay:1.05s;width:60%}
+.typewriter-roller{position:absolute;z-index:2;bottom:24px;left:6px;width:92px;height:8px;background:#426744;border-radius:5px}
+.typewriter-carriage{position:absolute;z-index:3;bottom:24px;left:21px;width:9px;height:13px;border:2px solid #a3bc85;border-bottom:0;border-radius:2px;background:#5b7d4c;animation:carriage-travel .65s steps(9,end) 3}
+.typewriter-keys{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;position:absolute;z-index:4;bottom:0;left:9px;right:9px;background:#739361;border:1px solid #547b48;border-radius:5px 5px 9px 9px;padding:7px 11px}
+.typewriter-keys i{height:4px;background:#dce7c7;border-radius:2px}.typewriter-keys i:nth-child(3n){animation:key-tap .3s steps(2,end) 6}
+.typewriter-copy{min-width:0}.typewriter-copy strong{display:block;color:#45683e;font:15px/1.5 'Courier New',monospace;font-weight:700}
+.typewriter-copy strong>span{display:block;width:18ch;max-width:100%;white-space:nowrap;overflow:hidden;border-right:2px solid #7b9a62;animation:type-title 1.2s steps(18,end) both,typing-caret .45s step-end 4}
+.typewriter-copy p{font-size:11px;color:#7c936a;margin-top:7px;line-height:1.7}
+.print-intro>.text-control{position:absolute;right:17px;bottom:11px;font-size:10px;color:#54733f;padding:5px;min-height:28px}.print-intro .typewriter-copy{padding-bottom:18px}
+@keyframes paper-feed{from{transform:translateY(20px)}to{transform:translateY(-7px)}}
+@keyframes typed-line{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes carriage-travel{from{transform:translateX(0)}to{transform:translateX(58px)}}
+@keyframes key-tap{50%{background:#7c995e;transform:translateY(1px)}}
+@keyframes type-title{from{width:0}to{width:18ch}}
+@keyframes typing-caret{50%{border-color:transparent}}
+
+@media screen and (max-width:1000px){.student-header-inner{gap:18px}.brand-wordmark{font-size:21px}.my-plan-layout{gap:19px}.plan-route-card,.plan-preparation-card{padding:23px}.plan-print-card{gap:16px;padding:21px}.plan-goal-banner{padding:24px}.plan-region{white-space:normal}.plan-goal-banner h2{font-size:23px}.welcome-main{gap:38px}.welcome-intro h1{font-size:37px}}
+@media screen and (max-width:800px){.student-header-inner{min-height:88px;gap:0 15px}.portal-nav button{font-size:11px}.my-plan-layout{grid-template-columns:1fr}.plan-itinerary{display:grid;grid-template-columns:1fr 1fr;column-gap:24px}.plan-itinerary li:not(:last-child):before{display:none}.plan-itinerary li{min-height:85px}.plan-side-column{grid-template-columns:1fr}.welcome-main{gap:30px}.welcome-intro h1{font-size:32px}.plan-region{font-size:9px}.plan-save-control{gap:11px}.plan-goal-banner{align-items:flex-start}.plan-goal-symbol{width:45px;height:45px}}
+@media screen and (max-width:600px){.brand .cg-mark{width:40px;height:40px}.brand-lockup{gap:10px}.brand-wordmark{font-size:20px}.brand-wordmark>span{font-size:8px;letter-spacing:3px}.header{height:80px}.portal-nav button,.portal-nav button:first-child,.portal-nav button:last-child{font-size:10px;padding:9px 7px}.welcome-main{padding-top:39px}.welcome-intro h1{font-size:34px}.welcome-intro>p{font-size:14px}.welcome-overview{gap:25px}.example-route{padding:26px}.welcome-actions .button{font-size:12px}.access-card{padding:27px}.page-heading h1{font-size:26px}.exam-row>summary{padding:16px}.exam-body{padding:0 16px 20px}.plan-save-control{width:100%;justify-content:space-between}.plan-goal-banner{gap:13px;flex-wrap:wrap;padding:21px}.plan-goal-banner>div:nth-child(2){flex:1;min-width:180px}.plan-goal-banner h2{font-size:21px}.plan-goal-banner p{font-size:11px}.plan-region{margin-left:58px;align-self:auto}.plan-route-card,.plan-preparation-card{padding:22px}.plan-card-heading h2{font-size:17px}.plan-itinerary{display:block}.plan-itinerary li{min-height:77px}.plan-itinerary li:not(:last-child):before{display:block}.plan-itinerary strong{font-size:13px}.plan-print-card{gap:19px;padding:22px}.plan-paper-icon{width:67px;min-height:94px;padding:13px 9px}.plan-paper-icon>span:first-child{font-size:4px}.plan-print-card h2{font-size:18px}.plan-print-card p{font-size:11px}.print-intro{right:16px;bottom:16px;width:calc(100vw - 32px);gap:13px;padding:14px;flex-wrap:wrap}.typewriter-mini{width:92px}.typewriter-copy{flex:1;min-width:140px}.typewriter-copy strong{font-size:12px}.typewriter-copy p{font-size:10px}.print-intro>.text-control{margin-top:-5px}.print-report.is-preview .document-section{border-radius:9px}.document-title h1{font-size:23px}}
+@media(prefers-reduced-motion:reduce){.print-intro{display:none}.typewriter-mini *,.typewriter-copy strong>span{animation:none!important}.preparation-progress::-webkit-progress-value{transition:none}}
+@media print{.print-intro{display:none!important}.print-report *{animation:none!important;transition:none!important;clip-path:none!important}.document-section{box-shadow:none;border-radius:0}.document-header{color:#243e2b}.document-title h1{color:#1c2f23}.report-section-nav{display:none!important}}
+
+/* Keep narrow-screen navigation clear and consistent. */
+@media screen and (max-width:600px){
+ .portal-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;align-items:stretch}
+ .portal-nav button,.portal-nav button:first-child,.portal-nav button:last-child{font-size:11px;white-space:normal;min-height:43px;padding:8px 5px;line-height:1.4}
+ .home-trigger{min-width:43px;min-height:38px}
+ .folder-breadcrumbs button{min-height:32px}
+ .plan-route-resources button{width:38px;height:38px}
+ .plan-history time{float:none;display:block;margin:3px 0 0}
+}
+@media screen{
+ .profile-status,.field-help,.profile-save>span,.library-note{color:#6b805b}
+ .folder-description,.folder-bottom{color:#627b52}
+ .plan-save-state,.plan-goal-banner p,.plan-print-card p,.plan-project p{color:#657d54}
+ .access-page .public-legal{width:min(790px,calc(100% - 48px));flex:1}
+}

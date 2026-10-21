@@ -1,0 +1,9 @@
+import { env } from 'cloudflare:workers';
+import { digest, token } from './security';
+export function db(){if(!env.DB)throw new Error('Database unavailable');return env.DB;}
+export function json(value:unknown,status=200,headers:Record<string,string>={}){return Response.json(value,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff',...headers}});}
+export function cookie(value:string,request:Request,age=604800){return `cg_session=${value}; HttpOnly; SameSite=Lax; Path=/; Max-Age=${age}${new URL(request.url).protocol==='https:'?'; Secure':''}`;}
+export async function identity(req:Request){const value=req.headers.get('cookie')?.split(';').map(v=>v.trim()).find(v=>v.startsWith('cg_session='))?.slice(11);if(!value||!/^[a-f0-9]{64}$/.test(value))return null;return db().prepare('SELECT students.id, students.email FROM sessions JOIN students ON students.id=sessions.student WHERE token=? AND expires>?').bind(digest(value),Date.now()).first<{id:string;email:string}>();}
+export async function newSession(id:string,req:Request){const raw=token();await db().prepare('INSERT INTO sessions(token,student,expires) VALUES(?,?,?)').bind(digest(raw),id,Date.now()+604800000).run();return cookie(raw,req);}
+export async function limit(key:string,max:number,window=900000){const now=Date.now();const bucket=`${key}:${Math.floor(now/window)}`;await db().prepare('DELETE FROM limits WHERE expires<?').bind(now).run();const row=await db().prepare('INSERT INTO limits(key,count,expires) VALUES(?,1,?) ON CONFLICT(key) DO UPDATE SET count=count+1 RETURNING count').bind(bucket,now+window).first<{count:number}>();return !!row&&row.count<=max;}
+export async function body(req:Request){if(req.headers.get('origin')!==new URL(req.url).origin)throw new Error('ORIGIN');if(!req.headers.get('content-type')?.startsWith('application/json'))throw new Error('BODY');const text=await req.text();if(text.length>24000)throw new Error('BODY');return JSON.parse(text);}

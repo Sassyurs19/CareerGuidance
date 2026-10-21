@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: career-guidance-api
+    runtime: node
+    plan: free
+    buildCommand: npm ci --include=dev && npm run build:api
+    startCommand: npm run start:api
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 22.16.0
+      - key: FIREBASE_PROJECT_ID
+        value: careerguidaance
+      - key: ALLOWED_ORIGINS
+        value: https://careerguidaance.web.app,https://careerguidaance.firebaseapp.com
+      - key: GOOGLE_APPLICATION_CREDENTIALS
+        value: /etc/secrets/firebase-service-account.json
+    # Add firebase-service-account.json as a Render secret file, never in Git.

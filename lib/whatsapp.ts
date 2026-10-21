@@ -1,0 +1,8 @@
+import { env } from 'cloudflare:workers';
+import { createHmac, timingSafeEqual } from 'node:crypto';
+import { planText, type Plan } from './catalog';
+export function botConfig(){const e=env as unknown as Record<string,string>;return {enabled:e.WHATSAPP_ENABLED==='true',number:e.WHATSAPP_BUSINESS_NUMBER,phoneId:e.WHATSAPP_PHONE_NUMBER_ID,accessToken:e.WHATSAPP_ACCESS_TOKEN,appSecret:e.WHATSAPP_APP_SECRET,verifyToken:e.WHATSAPP_VERIFY_TOKEN,version:e.WHATSAPP_GRAPH_VERSION};}
+export function botReady(){const c=botConfig();return !!(c.enabled&&/^\d{8,15}$/.test(c.number||'')&&/^\d+$/.test(c.phoneId||'')&&/^v\d+\.\d+$/.test(c.version||'')&&c.accessToken&&c.appSecret&&c.verifyToken);}
+export function verifySignature(raw:string,signature:string,secret:string){if(!/^sha256=[a-f0-9]{64}$/.test(signature))return false;const expected=createHmac('sha256',secret).update(raw).digest();return timingSafeEqual(expected,Buffer.from(signature.slice(7),'hex'));}
+export function botReply(plan:Plan){return `Hi! Here is your Career Guidance plan.\n\n${planText(plan)}\n\nYour plan code expires after 24 hours. Create a fresh connection from the website whenever your choices change. This is an automatic resource guide, not an admissions decision.`;}
+export async function sendReply(to:string,text:string){const c=botConfig();const result=await fetch(`https://graph.facebook.com/${c.version}/${c.phoneId}/messages`,{method:'POST',headers:{Authorization:`Bearer ${c.accessToken}`,'Content-Type':'application/json'},body:JSON.stringify({messaging_product:'whatsapp',to,type:'text',text:{preview_url:false,body:text.slice(0,4096)}}),signal:AbortSignal.timeout(10000)});if(!result.ok)throw new Error('WhatsApp delivery failed');}

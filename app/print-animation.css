@@ -1,0 +1,36 @@
+.print-scene{position:fixed;inset:0;width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;border-radius:0;background:#f0f6e9;color:#294d36;overflow:auto;box-shadow:none}
+.print-scene::backdrop{background:#f0f6e9}
+.print-scene-top{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:27px 38px;position:absolute;inset:0 0 auto}
+.print-scene-skip{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:10px 14px;border:1px solid #cddfc0;border-radius:8px;background:#f8fcf2;color:#58774b;font-size:12px}
+.print-scene-content{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100%;padding:125px 24px 45px;text-align:center}
+.print-machine{position:relative;width:320px;height:285px;flex-shrink:0;margin-bottom:25px;isolation:isolate}
+.print-machine-paper{position:absolute;top:3px;left:57px;width:206px;height:219px;text-align:left;padding:22px 23px;background:#fffef8;border:1px solid #d0dec0;border-radius:5px;box-shadow:0 5px 14px #39522509;animation:full-paper-feed 3.5s steps(12,end) both;overflow:hidden;z-index:1}
+.print-machine-paper>span:first-child{display:block;color:#7b946a;font:7px/1.4 'Lato',Arial,sans-serif;letter-spacing:1.4px}
+.print-machine-paper>strong{display:block;font:12px/1.5 'Libre Baskerville',Georgia,serif;margin:9px 0 14px;color:#3f653f}
+.print-machine-route>div{display:flex;align-items:center;gap:7px;font-size:8px;line-height:1.5;color:#718660;padding:3px 0;overflow:hidden;white-space:nowrap;animation:print-row .3s steps(8,end) both}
+.print-machine-route i{width:4px;height:4px;border:1px solid #9fb88b;border-radius:50%;flex-shrink:0}
+.print-paper-rule{display:block;width:85%;height:2px;background:#dbe6d0;margin-top:13px;animation:print-row .4s 2.4s both}
+.print-machine-slot{position:absolute;left:16px;right:16px;bottom:71px;height:16px;border-radius:9px;background:#345941;border:4px solid #789a68;z-index:3}
+.print-machine-body{position:absolute;z-index:4;bottom:0;left:24px;right:24px;height:80px;border:1px solid #638751;background:#88a676;border-radius:8px 8px 20px 20px;box-shadow:0 7px 0 #c6d8b7,0 13px 22px #456a2c0e;padding:11px 30px 12px}
+.print-machine-label{font-size:5px;letter-spacing:1.6px;color:#eef5e5;display:block;margin-bottom:8px;text-align:center}
+.print-machine-light{position:absolute;right:13px;top:13px;width:5px;height:5px;background:#daeaba;border-radius:50%;animation:print-light .6s ease-in-out 6}
+.print-machine-keys{display:grid;grid-template-columns:repeat(6,1fr);gap:4px}
+.print-machine-keys i{height:8px;border-radius:2px;background:#e6efda;border-bottom:2px solid #b6cba6;animation:full-key-tap .48s steps(2,end) 7}
+.print-machine-space{display:block;height:7px;width:70px;background:#e3edd5;border-radius:2px;border-bottom:2px solid #b4c99f;margin:5px auto 0}
+.print-machine-carriage{position:absolute;z-index:5;left:58px;bottom:77px;width:14px;height:19px;background:#6b8b55;border:3px solid #c8dbb2;border-bottom:0;border-radius:3px 3px 0 0;animation:full-carriage .75s steps(10,end) 4}
+.print-scene-caption>span{font-size:9px;letter-spacing:2px;color:#7b9567;font-weight:700}
+.print-scene-caption h1{font:400 30px/1.4 'Libre Baskerville',Georgia,serif;letter-spacing:-.6px;color:#365b38;margin:12px 0 10px;animation:caption-arrive .6s .2s both}
+.print-scene-caption p{max-width:330px;font-size:13px;line-height:1.8;color:#748c62;margin:auto}
+.print-scene-progress{height:3px;width:170px;border-radius:3px;background:#dce8d0;margin-top:29px;overflow:hidden}
+.print-scene-progress i{display:block;background:#779b5f;height:100%;transform-origin:left;animation:print-duration 4s linear both}
+@keyframes full-paper-feed{from{transform:translateY(70px)}to{transform:translateY(-4px)}}
+@keyframes print-row{from{clip-path:inset(0 100% 0 0);opacity:0}to{clip-path:inset(0);opacity:1}}
+@keyframes full-carriage{0%{transform:translateX(0)}88%{transform:translateX(180px)}100%{transform:translateX(0)}}
+@keyframes full-key-tap{50%{background:#bed2a5;transform:translateY(2px)}}
+@keyframes print-light{50%{opacity:.35}}
+@keyframes caption-arrive{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@keyframes print-duration{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media(max-width:600px){.print-scene-top{padding:20px 17px}.print-scene-top .brand-wordmark{font-size:18px}.print-scene-top .cg-mark{width:36px;height:36px}.print-scene-skip{font-size:11px;padding:9px 11px;gap:6px}.print-scene-content{padding:110px 18px 40px}.print-machine{width:280px;height:268px;max-width:100%;margin-bottom:23px}.print-machine-paper{width:184px;left:calc(50% - 92px);height:205px;padding:18px}.print-machine-slot{left:9px;right:9px}.print-machine-body{left:15px;right:15px}.print-machine-carriage{left:42px}.print-scene-caption h1{font-size:26px}.print-scene-caption p{font-size:12px;max-width:260px}.print-scene-caption>span{font-size:8px}}
+@media(max-height:620px){.print-scene-content{padding-top:95px}.print-machine{transform:scale(.8);transform-origin:center bottom;margin-top:-45px;margin-bottom:10px}.print-scene-caption h1{font-size:24px}.print-scene-progress{margin-top:19px}}
+@media(prefers-reduced-motion:reduce){.print-scene *{animation:none!important}}
+@media print{.print-scene,.print-scene::backdrop{display:none!important}}
